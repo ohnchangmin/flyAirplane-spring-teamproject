@@ -1,0 +1,14 @@
+CREATE SCHEMA `airplane` DEFAULT CHARACTER SET utf8 ;
+
+
+
+
+
+
+CREATE TABLE `airplane`.`notice` (
+  `idx` INT NOT NULL AUTO_INCREMENT DEFAULT 1,
+  `title` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `content` VARCHAR(250) NULL,
+  `wdate` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idx`));
