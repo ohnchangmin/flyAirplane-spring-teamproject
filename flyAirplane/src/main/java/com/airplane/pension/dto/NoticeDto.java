@@ -1,21 +1,13 @@
 package com.airplane.pension.dto;
 
 public class NoticeDto {
+	
 	private int idx;
 	private String title;
 	private String name;
 	private String content;
 	private String wdate;
 	
-	public NoticeDto(int idx, String title, String name, String content, String wdate) {
-		super();
-		this.idx = idx;
-		this.title = title;
-		this.name = name;
-		this.content = content;
-		this.wdate = wdate;
-	}
-
 	public int getIdx() {
 		return idx;
 	}

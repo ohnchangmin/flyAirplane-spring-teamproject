@@ -16,8 +16,19 @@ public class NoticeController {
 	@Autowired
 	NoticeDao dao;
 	
-	@RequestMapping(value = "notice")
-	public String notice(Model model) {
+//	@RequestMapping(value = "/notice")
+//	public String Notice(Model model) {
+//		List<NoticeDto> list = new ArrayList<NoticeDto>();
+//		NoticeDto notice1 = new NoticeDto(1, "제목2", "작성자", "내용없음", "2021-09-18");
+//		list.add(notice1);
+//		
+//		model.addAttribute("list", list);
+//		
+//		return "notice";
+//	}
+	
+	@RequestMapping(value = "/notice")
+	public String Notice(Model model) {
 		List<NoticeDto> list = dao.selectList();
 		model.addAttribute("list", list);
 		return "notice";
