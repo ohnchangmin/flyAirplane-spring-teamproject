@@ -7,7 +7,7 @@ public class NoticeDto {
 	private String name;
 	private String content;
 	private String wdate;
-	
+
 	public int getIdx() {
 		return idx;
 	}

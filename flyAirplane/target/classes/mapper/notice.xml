@@ -7,6 +7,13 @@
 		select * from notice
 	</select>
 	
+	<insert id="insert">
+		inser into notice
+		(title, name, content, wdate)
+		values
+		values ('#{title}', '#{name}', '#{content}', '#{wdate}')
+	</insert>
+	
 	<select id="listCriteria" resultType="com.airplane.pension.dto.NoticeDto">
 		<![CDATA[
 		select * from notice
