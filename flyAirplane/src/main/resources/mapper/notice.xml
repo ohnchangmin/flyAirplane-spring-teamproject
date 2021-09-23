@@ -7,10 +7,14 @@
 		select * from notice
 	</select>
 	
+	<select id="selectOne" parameterType="int" resultType="com.airplane.pension.dto.NoticeDto">
+		select * from notice 
+		where idx = #{idx}	
+	</select>
+	
 	<insert id="insert">
 		inser into notice
 		(title, name, content, wdate)
-		values
 		values ('#{title}', '#{name}', '#{content}', '#{wdate}')
 	</insert>
 	

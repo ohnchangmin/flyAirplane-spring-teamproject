@@ -1,31 +1,31 @@
-package com.airplane.pension.dao;
+package com.airplane.pension.service;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.airplane.pension.dao.NoticeDao;
 import com.airplane.pension.dto.NoticeDto;
 
 @Repository
-public class NoticeDaoImpl implements NoticeDao {
-
+public class NoticeServiceImpl implements NoticeService {
+	
 	@Autowired
-	SqlSession sqlsession;
+	NoticeDao dao;
 	
 	@Override
 	public void write(NoticeDto dto) throws Exception {
-		sqlsession.insert("notice.insert", dto);
+		dao.write(dto);
 	}
-		
+
 	@Override
-	public List<NoticeDto> list() throws Exception{
-		return sqlsession.selectList("notice.select");
+	public List<NoticeDto> list() throws Exception {
+		return dao.list();
 	}
 
 	@Override
 	public NoticeDto read(int idx) throws Exception {
-		return sqlsession.selectOne("notice.selectOne", idx);
+		return dao.read(idx);
 	}
 }
