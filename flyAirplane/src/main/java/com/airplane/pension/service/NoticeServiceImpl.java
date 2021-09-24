@@ -1,5 +1,6 @@
 package com.airplane.pension.service;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	@Override
 	public void write(NoticeDto dto) throws Exception {
+		long date = System.currentTimeMillis();
+		String curDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+		dto.setWdate(curDate);
 		dao.write(dto);
 	}
 
@@ -28,4 +32,15 @@ public class NoticeServiceImpl implements NoticeService {
 	public NoticeDto read(int idx) throws Exception {
 		return dao.read(idx);
 	}
+
+	@Override
+	public void update(NoticeDto dto) throws Exception {
+		dao.update(dto);
+	}
+
+	@Override
+	public void delete(int idx) throws Exception {
+		dao.delete(idx);
+	}
+	
 }

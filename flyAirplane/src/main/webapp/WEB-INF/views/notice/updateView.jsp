@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,20 +10,8 @@
 <link rel="stylesheet" href="/pension/resources/importUrl.css">
 </head>
 <body>
-<!-- 	<div class="container"> -->
-<!-- 		<form method="post"> -->
-<!-- 			<div> -->
-<!-- 				<label>제목</label> -->
-<!-- 				<input action="/notice/wirte" type="text" name="title"> -->
-<!-- 			</div> -->
-<!-- 			<div> -->
-<!-- 				<label>내용</label> -->
-<!-- 				<textarea rows="20" cols="100" name="content"></textarea> -->
-<!-- 			</div> -->
-<!-- 			<button type="submit">저장</button> -->
-<!-- 		</form> -->
-<!-- 	</div> -->
-	<form action="write" method="post">
+	<form action="update" method="post">
+	<input type="hidden" name="idx" value="${param.idx}">
 	    <div class="board_wrap">
 	        <div class="board_title">
 	            <strong>공지사항</strong>

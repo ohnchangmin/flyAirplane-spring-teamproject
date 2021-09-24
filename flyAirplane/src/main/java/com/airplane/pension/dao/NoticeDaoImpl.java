@@ -28,4 +28,17 @@ public class NoticeDaoImpl implements NoticeDao {
 	public NoticeDto read(int idx) throws Exception {
 		return sqlsession.selectOne("notice.selectOne", idx);
 	}
+
+	@Override
+	public void update(NoticeDto dto) throws Exception {
+		sqlsession.update("notice.update", dto);
+	}
+
+	@Override
+	public void delete(int idx) throws Exception {
+		sqlsession.delete("notice.delete", idx);
+		
+	}
+	
+	
 }

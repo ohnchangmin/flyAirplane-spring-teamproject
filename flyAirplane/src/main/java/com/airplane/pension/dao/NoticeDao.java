@@ -11,4 +11,8 @@ public interface NoticeDao {
 	public List<NoticeDto> list() throws Exception;
 	
 	public NoticeDto read(int idx) throws Exception;
+	
+	public void update(NoticeDto dto) throws Exception;
+	
+	public void delete(int idx) throws Exception;
 }

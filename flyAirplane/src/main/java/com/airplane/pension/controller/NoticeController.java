@@ -16,17 +16,6 @@ public class NoticeController {
 	@Autowired
 	NoticeService service;
 	
-//	@RequestMapping(value = "/notice")
-//	public String Notice(Model model) {
-//		List<NoticeDto> list = new ArrayList<NoticeDto>();
-//		NoticeDto notice1 = new NoticeDto(1, "제목2", "작성자", "내용없음", "2021-09-18");
-//		list.add(notice1);
-//		
-//		model.addAttribute("list", list);
-//		
-//		return "notice";
-//	}
-	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String Notice(Model model) throws Exception {
 		model.addAttribute("list", service.list());
@@ -40,14 +29,31 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "/writeView", method = RequestMethod.GET)
-	public String write() {
+	public String writeView() {
 		return "notice/writeView";
 	}
 	
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String write(NoticeDto dto) throws Exception{
 		service.write(dto);		
-		return "redirect:/list";
+		return "redirect:/notice/list";
 	}
 	
+	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
+	public String updateView(Model model, NoticeDto dto) throws Exception {
+		model.addAttribute("update", service.read(dto.getIdx()));
+		return "notice/updateView";
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String update(NoticeDto dto) throws Exception{
+		service.update(dto);
+		return "redirect:/notice/list";
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete(int idx) throws Exception{
+		service.delete(idx);
+		return "redirect:/notice/list";
+	}
 }

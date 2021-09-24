@@ -14,4 +14,10 @@ public interface NoticeService {
 	
 	//공지사항 내용 조회
 	public NoticeDto read(int idx) throws Exception;
+	
+	//공지사항 수정
+	public void update(NoticeDto dto) throws Exception;
+	
+	//공지사항 삭제
+	public void delete(int idx) throws Exception;
 }

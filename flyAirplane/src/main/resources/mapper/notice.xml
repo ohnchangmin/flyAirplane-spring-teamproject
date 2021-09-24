@@ -13,10 +13,22 @@
 	</select>
 	
 	<insert id="insert">
-		inser into notice
+		insert into notice
 		(title, name, content, wdate)
-		values ('#{title}', '#{name}', '#{content}', '#{wdate}')
+		values (#{title}, #{name}, #{content}, #{wdate})
 	</insert>
+	
+	<update id="update" parameterType="com.airplane.pension.dto.NoticeDto">
+		update notice
+		set title = #{title}, 
+			content = #{content}
+		where idx = #{idx}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from notice
+		where idx = #{idx}
+	</delete>
 	
 	<select id="listCriteria" resultType="com.airplane.pension.dto.NoticeDto">
 		<![CDATA[
