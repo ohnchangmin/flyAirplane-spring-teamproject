@@ -11,9 +11,7 @@ public class AdminImplDao implements AdminDao{
 	SqlSession sqlsession;
 	
 	@Override
-	public AdminDto loginCheck(String id) throws Exception {
-		return sqlsession.selectOne("admin.adminCheck", id);
+	public AdminDto login(AdminDto dto) throws Exception {
+		return sqlsession.selectOne("admin.adminLogin", dto);
 	}
-	
-	
 }

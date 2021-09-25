@@ -3,8 +3,7 @@ package com.airplane.pension.dto;
 public class AdminDto {
 	private String id;
 	private String password;
-	private String username;
-	private String nickname;
+	private String adminName;
 	
 	public String getId() {
 		return id;
@@ -21,26 +20,17 @@ public class AdminDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	public String getUsername() {
-		return username;
+
+	public String getAdminName() {
+		return adminName;
 	}
-	
-	public void setUsername(String username) {
-		this.username = username;
+
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
 	}
-	
-	public String getNickname() {
-		return nickname;
-	}
-	
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "AdminDto [id=" + id + ", password=" + password + ", username=" + username + ", nickname=" + nickname
-				+ "]";
+		return "AdminDto [id=" + id + ", password=" + password + ", adminName=" + adminName + "]";
 	}
 }

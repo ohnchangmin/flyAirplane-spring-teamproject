@@ -4,5 +4,5 @@ import com.airplane.pension.dto.AdminDto;
 
 public interface AdminDao {
 	
-	public AdminDto loginCheck(String id) throws Exception;
+	public AdminDto login(AdminDto dto) throws Exception;
 }
