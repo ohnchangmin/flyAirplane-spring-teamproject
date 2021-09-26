@@ -4,12 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.airplane.pension.dao.NoticeDao;
 import com.airplane.pension.dto.NoticeDto;
 
-@Repository
+@Service
 public class NoticeServiceImpl implements NoticeService {
 	
 	@Autowired

@@ -7,10 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="adminLogin" method="post">
-		<input type="text" name="id">
-		<input type="text" name="password">
-		<input type="submit" value="로그인">
+	<form action="/pension/admin/adminLogin" method="post">
+		<div>
+			<input type="text" name="id">
+			<input type="text" name="password">
+			<input type="submit" value="로그인">
+		</div>
+		<div>${text}</div>
 	</form>
+	
 </body>
 </html>

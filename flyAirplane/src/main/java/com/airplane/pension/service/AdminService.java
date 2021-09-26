@@ -5,5 +5,5 @@ import javax.servlet.http.HttpSession;
 import com.airplane.pension.dto.AdminDto;
 
 public interface AdminService {
-	public void loginCheck(AdminDto dto, HttpSession session) throws Exception;
+	public boolean loginCheck(AdminDto dto, HttpSession session) throws Exception;
 }
