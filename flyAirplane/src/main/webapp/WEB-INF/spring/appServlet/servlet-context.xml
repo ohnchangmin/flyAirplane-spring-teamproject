@@ -20,7 +20,19 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-
-	<context:component-scan base-package="com.airplane.pension.controller" />
 	
+	  <!-- 인터셉터 객체 생성 -->
+    <beans:bean id="authInterceptor" class="com.airplane.pension.interceptor.AuthInterceptor">
+    </beans:bean>
+    
+    <!-- Interceptor 설정 -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/notice/writeView"/>
+            <beans:ref bean="authInterceptor"/>
+        </interceptor>
+    </interceptors>
+	
+	<context:component-scan base-package="com.airplane.pension.controller" />
+
 </beans:beans>
