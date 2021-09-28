@@ -4,16 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자 로그인</title>
+<link rel="stylesheet" href="/pension/resources/login.css">
 </head>
 <body>
 	<form action="/pension/admin/adminLogin" method="post">
-		<div>
-			<input type="text" name="id">
-			<input type="text" name="password">
-			<input type="submit" value="로그인">
+		<div class="login-form">
+			<input class="text-field" placeholder="아이디" type="text" name="id">
+			<input class="text-field" placeholder="비밀번호" type="text" name="password">
+			<div class="loginFail">${text}</div>
+			<input class="submit-btn" type="submit" value="로그인">
 		</div>
-		<div>${text}</div>
 	</form>
 	
 </body>

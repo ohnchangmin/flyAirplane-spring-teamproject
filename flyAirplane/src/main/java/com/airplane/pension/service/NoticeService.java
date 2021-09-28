@@ -2,6 +2,7 @@ package com.airplane.pension.service;
 
 import java.util.List;
 
+import com.airplane.pension.dto.Criteria;
 import com.airplane.pension.dto.NoticeDto;
 
 public interface NoticeService {
@@ -20,4 +21,8 @@ public interface NoticeService {
 	
 	//공지사항 삭제
 	public void delete(int idx) throws Exception;
+	
+	public List<NoticeDto> list(Criteria cri) throws Exception;
+	
+	public int listCount() throws Exception;
 }

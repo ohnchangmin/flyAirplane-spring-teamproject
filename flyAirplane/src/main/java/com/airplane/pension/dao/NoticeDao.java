@@ -2,6 +2,7 @@ package com.airplane.pension.dao;
 
 import java.util.List;
 
+import com.airplane.pension.dto.Criteria;
 import com.airplane.pension.dto.NoticeDto;
 
 public interface NoticeDao {
@@ -15,4 +16,8 @@ public interface NoticeDao {
 	public void update(NoticeDto dto) throws Exception;
 	
 	public void delete(int idx) throws Exception;
+	
+	public List<NoticeDto> list(Criteria cri) throws Exception;
+	
+	public int listCount() throws Exception;
 }

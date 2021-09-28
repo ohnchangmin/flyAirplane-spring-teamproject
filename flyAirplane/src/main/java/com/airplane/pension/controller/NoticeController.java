@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.airplane.pension.dto.Criteria;
 import com.airplane.pension.dto.NoticeDto;
+import com.airplane.pension.dto.PageMaker;
 import com.airplane.pension.service.NoticeService;
 
 @Controller
@@ -17,8 +19,13 @@ public class NoticeController {
 	NoticeService service;
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String Notice(Model model) throws Exception {
-		model.addAttribute("list", service.list());
+	public String Notice(Model model, Criteria cri) throws Exception {
+		model.addAttribute("list", service.list(cri));
+		
+		PageMaker pageMaker= new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listCount());
+		model.addAttribute("pageMaker", pageMaker);
 		return "notice/list";
 	}
 	

@@ -31,8 +31,10 @@ public class AdminController {
 	
 	@RequestMapping(value = "/adminLogin", method = RequestMethod.POST)
 	public String adminLogin(AdminDto dto, HttpSession session) throws Exception {
-		boolean result = service.loginCheck(dto, session);
+		boolean result = service.loginCheck(dto);
 		if(result == true) {
+			session.setAttribute("adminId", dto.getId());
+			session.setAttribute("adminName", dto.getAdminName());
 			return "redirect:/notice/list";
 		}
 		else{

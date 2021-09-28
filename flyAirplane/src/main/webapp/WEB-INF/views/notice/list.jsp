@@ -10,10 +10,13 @@
 <link rel="stylesheet" href="/pension/resources/importUrl.css">
 </head>
 <body>
+<script type="text/javascript">
+</script>
  <div class="board_wrap">
         <div class="board_title">
             <strong>공지사항</strong>
             <p>창민이 펜션을 많은 이용 부탁드립니다</p>
+            
         </div>
         <div class="board_list_wrap">
             <div class="board_list">
@@ -35,19 +38,18 @@
                 </c:forEach>
             </div>
             <div class="board_page">
-                <a href="#" class="bt first"><<</a>
-                <a href="#" class="bt prev"><</a>
-                <a href="#" class="num on">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
-                <a href="#" class="num">4</a>
-                <a href="#" class="num">5</a>
-                <a href="#" class="bt next">></a>
-                <a href="#" class="bt last">>></a>
+                <c:if test="${pageMaker.prev}">
+               		<a href="list${pageMaker.makeQuery(pageMaker.startPage-1)}" class="bt prev"><</a>
+                </c:if>
+                <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+               		<a href="list${pageMaker.makeQuery(idx)}" class="num">${idx}</a>	
+                </c:forEach>
+                <c:if test="${pageMaker.next && pageMaker.endPage>0}">
+                	<a href="list${pageMaker.makeQuery(pageMaker.endPage+1)}" class="bt next">></a>
+                </c:if>
             </div>
             <div class="bt_wrap">
-                <a href="writeView" class="on">등록</a>
-                <!--<a href="#">수정</a>-->
+                <a href="writeView" class="on">등록</button>
             </div>
         </div>
     </div>

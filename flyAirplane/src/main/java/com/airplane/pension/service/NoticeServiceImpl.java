@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.airplane.pension.dao.NoticeDao;
+import com.airplane.pension.dto.Criteria;
 import com.airplane.pension.dto.NoticeDto;
 
 @Service
@@ -42,5 +43,14 @@ public class NoticeServiceImpl implements NoticeService {
 	public void delete(int idx) throws Exception {
 		dao.delete(idx);
 	}
-	
+
+	@Override
+	public List<NoticeDto> list(Criteria cri) throws Exception {
+		return dao.list(cri);
+	}
+
+	@Override
+	public int listCount() throws Exception {
+		return dao.listCount();
+	}
 }

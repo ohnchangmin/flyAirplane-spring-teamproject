@@ -13,28 +13,41 @@
 	</select>
 	
 	<insert id="insert">
+		<![CDATA[
 		insert into notice
 		(title, name, content, wdate)
 		values (#{title}, #{name}, #{content}, #{wdate})
+		]]>
 	</insert>
 	
 	<update id="update" parameterType="com.airplane.pension.dto.NoticeDto">
+		<![CDATA[
 		update notice
 		set title = #{title}, 
 			content = #{content}
 		where idx = #{idx}
+		]]>
 	</update>
 	
 	<delete id="delete" parameterType="int">
+		<![CDATA[
 		delete from notice
 		where idx = #{idx}
+		]]>
 	</delete>
 	
-	<select id="listCriteria" resultType="com.airplane.pension.dto.NoticeDto">
+	<select id="listCriteria" parameterType="com.airplane.pension.dto.Criteria" resultType="com.airplane.pension.dto.NoticeDto">
 		<![CDATA[
 		select * from notice
 		order by idx desc
 		limit #{pageStart}, #{perPageNum}
+		]]>
+	</select>
+	
+	<select id="listCount" resultType="int">
+		<![CDATA[
+		select count(idx) from notice
+		where idx>0
 		]]>
 	</select>
 </mapper>
