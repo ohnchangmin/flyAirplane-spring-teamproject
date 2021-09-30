@@ -83,5 +83,4 @@ public class PageMaker {
 														  .build();
 		return uriComponents.toUriString();
 	}
-	
 }

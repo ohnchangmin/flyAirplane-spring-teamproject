@@ -42,7 +42,8 @@
                		<a href="list${pageMaker.makeQuery(pageMaker.startPage-1)}" class="bt prev"><</a>
                 </c:if>
                 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-               		<a href="list${pageMaker.makeQuery(idx)}" class="num">${idx}</a>	
+                ${page}
+               		<a href="list${pageMaker.makeQuery(idx)}" class="num <c:if test="${page eq idx}"><c:out value="on"/></c:if>">${idx}</a>	
                 </c:forEach>
                 <c:if test="${pageMaker.next && pageMaker.endPage>0}">
                 	<a href="list${pageMaker.makeQuery(pageMaker.endPage+1)}" class="bt next">></a>

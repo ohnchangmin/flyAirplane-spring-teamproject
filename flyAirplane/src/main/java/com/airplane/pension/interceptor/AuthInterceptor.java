@@ -12,7 +12,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
+			throws Exception{
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
@@ -27,5 +27,5 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
 		}
 		return true;
 	}
-	
+
 }

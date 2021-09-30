@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	  <!-- 인터셉터 객체 생성 -->
+	<!-- 인터셉터 객체 생성 -->
     <beans:bean id="authInterceptor" class="com.airplane.pension.interceptor.AuthInterceptor">
     </beans:bean>
     

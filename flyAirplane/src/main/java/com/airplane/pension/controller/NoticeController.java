@@ -25,6 +25,7 @@ public class NoticeController {
 		PageMaker pageMaker= new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listCount());
+		model.addAttribute("page", cri.getPage());
 		model.addAttribute("pageMaker", pageMaker);
 		return "notice/list";
 	}

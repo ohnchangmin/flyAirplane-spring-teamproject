@@ -3,8 +3,8 @@ package com.airplane.pension.dto;
 public class Criteria {
 	
 	
-	private int page; 			// 보여줄 페이지 번호							
-	private int perPageNum; 	// 페이지당 보여줄 게시글의 수
+	private int page; 			// 보여줄 페이지 번호 							
+	private int perPageNum; 	// 페이지당 보여줄 게시글의 수 10개
 	
 	// 최초 게시판 진입시 디폴트값
 	public Criteria() {
