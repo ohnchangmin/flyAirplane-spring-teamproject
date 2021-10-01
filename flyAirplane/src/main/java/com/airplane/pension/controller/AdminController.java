@@ -33,8 +33,8 @@ public class AdminController {
 	public String adminLogin(AdminDto dto, HttpSession session) throws Exception {
 		boolean result = service.loginCheck(dto);
 		if(result == true) {
-			session.setAttribute("adminId", dto.getId());
-			session.setAttribute("adminName", dto.getAdminName());
+			session.setAttribute("adminId", service.login(dto).getId());
+			session.setAttribute("adminName", service.login(dto).getAdminName());
 			return "redirect:/notice/list";
 		}
 		else{
