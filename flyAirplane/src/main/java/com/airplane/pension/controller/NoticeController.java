@@ -47,9 +47,13 @@ public class NoticeController {
 		return "redirect:/notice/list";
 	}
 	
-	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateView", method = RequestMethod.POST)
 	public String updateView(Model model, NoticeDto dto) throws Exception {
-		model.addAttribute("update", service.read(dto.getIdx()));
+		model.addAttribute("title", dto.getTitle());
+		model.addAttribute("content", dto.getContent());
+		model.addAttribute("writer", dto.getName());
+		model.addAttribute("wdate", dto.getWdate());
+		model.addAttribute("name", dto.getName());
 		return "notice/updateView";
 	}
 	
