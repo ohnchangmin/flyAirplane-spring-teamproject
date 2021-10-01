@@ -22,4 +22,8 @@ public class AdminServiceImpl implements AdminService {
 			return false;
 		}
 	}
+	
+	public AdminDto login(AdminDto dto) throws Exception{
+		return dao.login(dto);
+	}
 }

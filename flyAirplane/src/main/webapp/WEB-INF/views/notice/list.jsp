@@ -10,8 +10,6 @@
 <link rel="stylesheet" href="/pension/resources/importUrl.css">
 </head>
 <body>
-<script type="text/javascript">
-</script>
  <div class="board_wrap">
         <div class="board_title">
             <strong>공지사항</strong>
@@ -50,7 +48,7 @@
                 </c:if>
             </div>
             <div class="bt_wrap">
-                <a href="writeView" class="on">등록</button>
+                <a href="writeView" class="on">등록</a>
             </div>
         </div>
     </div>
