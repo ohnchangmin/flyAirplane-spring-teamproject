@@ -22,21 +22,21 @@
 	                <div class="title">
 	                    <dl>
 	                        <dt>제목</dt>
-	                        <dd><input type="text" name="title" placeholder="제목 입력"></dd>
+	                        <dd><input type="text" name="title" value="<c:out value="${title}"></c:out>"></dd>
 	                    </dl>
 	                </div>
 	                <div class="info">
 	                    <dl>
 	                        <dt>글쓴이</dt>
-	                        <dd><input type="text" name="name" placeholder="글쓴이 입력"></dd>
+	                        <dd><input type="hidden" name="name" value="<c:out value="${name}"></c:out>"><c:out value="${name}"></c:out></dd>
 	                    </dl>
 	                    <dl>
-	                        <dt>비밀번호</dt>
-	                        <dd><input type="password" name="password" placeholder="비밀번호 입력"></dd>
+	                        <dt>작성일</dt>
+	                        <dd><c:out value="${wdate}"></c:out></dd>
 	                    </dl>
 	                </div>
 	                <div class="cont">
-	                    <textarea name="content" placeholder="내용 입력"></textarea>
+	                    <textarea name="content"><c:out value="${content}"></c:out></textarea>
 	                </div>
 	            </div>
 	            <div class="bt_wrap">

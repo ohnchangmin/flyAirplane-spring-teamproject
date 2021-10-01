@@ -11,7 +11,7 @@
 	<form action="/pension/admin/adminLogin" method="post">
 		<div class="login-form">
 			<input class="text-field" placeholder="아이디" type="text" name="id">
-			<input class="text-field" placeholder="비밀번호" type="text" name="password">
+			<input class="text-field" placeholder="비밀번호" type="password" name="password">
 			<div class="loginFail">${text}</div>
 			<input class="submit-btn" type="submit" value="로그인">
 		</div>
