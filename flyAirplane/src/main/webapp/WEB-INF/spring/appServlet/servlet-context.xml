@@ -22,8 +22,7 @@
 	</beans:bean>
 	
 	<!-- 인터셉터 객체 생성 -->
-    <beans:bean id="authInterceptor" class="com.airplane.pension.interceptor.AuthInterceptor">
-    </beans:bean>
+    <beans:bean id="authInterceptor" class="com.airplane.pension.interceptor.AuthInterceptor"></beans:bean>
     
     <!-- Interceptor 설정 -->
     <interceptors>
