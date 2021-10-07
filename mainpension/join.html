@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="css/join.css">
+</head>
+<body>
+    <div class="wrap">
+        <h1>회원가입</h1>
+        <form>
+            <dl>
+                <dt>아이디</dt>
+                <dd><input type="text" placeholder="아이디 입력"></dd>
+            </dl>
+            <dl>
+                <dt>비밀번호</dt>
+                <dd><input type="password" placeholder="비밀번호 입력"></dd>
+            </dl>
+            <dl>
+                <dt>비밀번호 확인</dt>
+                <dd><input type="password" placeholder="비밀번호 재입력"></dd>
+            </dl>
+            <dl>
+                <dt>이름</dt>
+                <dd><input type="text" placeholder="이름 입력"></dd>
+            </dl>
+            <dl>
+                <dt>연락처</dt>
+                <dd><input type="tel" placeholder="연락처 입력"></dd>
+            </dl>
+            <dl>
+                <dt>주소</dt>
+                <dd><input type="button" value="주소찾기"></dd>
+            </dl>
+            <dl>
+                <dt>이메일</dt>
+                <dd>
+                    <input type="email" placeholder="이메일 입력">@
+                    <select>
+                        <option>gmail.com</option>
+                        <option>naver.com</option>
+                        <option>kakao.com</option>
+                        <option>daum.net</option>
+                    </select>
+                </dd>
+            </dl>
+            <dl>
+                <dt>성별</dt>
+                <dd>
+                    <input type="radio" name="gender" id="male">
+                    <label for="male">남자</label>
+                    <input type="radio" name="gender" id="female">
+                    <label for="female">여자</label>
+                </dd>
+            </dl>
+            <dl>
+                <dt>선호하는 언어</dt>
+                <dd>
+                    <input type="checkbox" id="f1">
+                    <label for="f1">C#</label>
+                    <input type="checkbox" id="f2">
+                    <label for="f2">Java</label>
+                    <input type="checkbox" id="f3">
+                    <label for="f3">Python</label>
+                </dd>
+            </dl>
+            <dl>
+                <dt>경력사항</dt>
+                <dd><textarea placeholder="경력사항 입력"></textarea></dd>
+            </dl>
+            <input type="submit" value="회원가입">
+            <input type="submit" value="가입취소">
+
+        </form>
+    </div>
+</body>
+</html>
