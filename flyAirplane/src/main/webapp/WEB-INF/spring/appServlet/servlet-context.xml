@@ -21,17 +21,53 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
 	<!-- 인터셉터 객체 생성 -->
     <beans:bean id="authInterceptor" class="com.airplane.pension.interceptor.AuthInterceptor"></beans:bean>
-    
+     <beans:bean id="ValidationInterceptor" class="com.airplane.pension.interceptor.ValidationInterceptor"></beans:bean>
+   
     <!-- Interceptor 설정 -->
     <interceptors>
         <interceptor>
             <mapping path="/notice/writeView"/>
+            <mapping path="/notice/updateView"/>
+            <mapping path="/notice/delete"/>
             <beans:ref bean="authInterceptor"/>
         </interceptor>
     </interceptors>
+  
+ <!-- Interceptor 설정 -->
+    <interceptors>
+        <interceptor>
+            <mapping path="/member/join"/>
+            <beans:ref bean="ValidationInterceptor"/>
+        </interceptor>
+    </interceptors>
+    
+    <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></beans:property>
+		<beans:property name="url"
+			value="jdbc:mysql://127.0.0.1:3306/flyairplane?useSSL=false&amp;serverTimezone=UTC">
+		</beans:property>
+		<beans:property name="username" value="root"></beans:property>
+		<beans:property name="password" value="1234"></beans:property>
+	</beans:bean>
 	
-	<context:component-scan base-package="com.airplane.pension.controller" />
+	<beans:bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"></beans:property> 		
+		<beans:property name="mapperLocations" value="classpath*:mapper/*.xml"></beans:property>
+	</beans:bean>	
+	
+	<beans:bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg ref="sqlSessionFactory"></beans:constructor-arg>
+	</beans:bean>
+	
+	<!-- passwordencoder 객체 생성 -->
+	<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	
+	<context:component-scan base-package="com.airplane.pension" />
 
 </beans:beans>
