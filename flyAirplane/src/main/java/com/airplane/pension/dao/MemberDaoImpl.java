@@ -17,4 +17,9 @@ public class MemberDaoImpl implements MemberDao{
 		session.insert("member.join", member);				
 	}
 	
+	@Override
+	public Member login(Member member) throws Exception{
+		return session.selectOne("member.login", member);
+	}
+	
 }
