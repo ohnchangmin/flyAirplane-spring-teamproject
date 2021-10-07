@@ -1,11 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+/* * { */
+/*     margin: 0; */
+/*     padding: 0; */
+/* } */
 
-html {
-    font-size: 10px;
-}
+/* html { */
+/*     font-size: 10px; */
+/* } */
 
 ul, li {
     list-style: none;
@@ -17,7 +17,7 @@ a {
 }
 
 .board_wrap {
-    width: 1000px;
+    width: 1500px;
     margin: 100px auto;
 }
 
@@ -61,7 +61,7 @@ a {
 
 .bt_wrap button {
     display: inline-block;
-    min-width: 102px;
+    min-width: 80px;
     margin-left: 10px;
     padding: 10px;
     border: 1px solid #000;
@@ -98,7 +98,7 @@ a {
     display: inline-block;
     padding: 15px 0;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.0rem;
 }
 
 .board_list > div.top > div {
@@ -138,8 +138,8 @@ a {
 
 .board_page a {
     display: inline-block;
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     box-sizing: border-box;
     vertical-align: middle;
     border: 1px solid #ddd;
@@ -263,7 +263,7 @@ a {
 .board_write .info dd {
     display: inline-block;
     vertical-align: middle;
-    font-size: 1.4rem;
+    font-size: 1.0rem;
 }
 
 .board_write .title dt,

@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Single Day', cursive;
+}
+/* padding 값 만큼만 여백을 갖고 나머지는 wrap 색으로 전체적용 */
+html, body
+{
+    height: 100%;
+}
+/* 전체 배경 색  */
+body
+{
+    background: white;
+}
+/* 컨텐츠를 감싸고 있는 div 이름이 wrap  */
+.wrap
+{
+    width: 600px;
+    min-height: 100%;
+    margin: 0 auto; /*가운데 정렬하기 */
+    padding: 50px;
+    box-sizing: border-box;
+    background: #fff;
+}
+/* h1 회원가입 글씨 조정하기 */
+.wrap h1
+{
+    padding-bottom: 12px;
+    border-bottom: 3px solid #000;
+    font-size: 32px;
+    letter-spacing: -2px;
+}
+/* 아이디부터 회원가입 버튼까지 form 태그로 묶여 있음 */
+/* 회원가입이랑 form태그 사이 거리 조정 */
+.wrap form
+{
+    margin-top: 30px;
+}
+/* dl : dt와 dd의 부모태그 */
+.wrap dl
+{
+    margin-top: 20px;
+    font-size: 0;
+}
+
+.wrap dl:first-child
+{
+    margin-top: 0;
+}
+/* dt랑 dd 정렬하기 */
+.wrap dt, .wrap dd
+{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+}
+/* dt랑 dd 거리 조정하기 */
+/* dt랑 dd 비율 조절할때 2가지가 100%가 넘으면 안되니깐 주의 ! */
+.wrap dt
+{
+    width: 25%;
+}
+
+.wrap dd
+{
+    width: 75%;
+}
+/* input 태그 크기 조정하기 */
+.wrap input[type="text"],
+.wrap input[type="password"],
+.wrap input[type="tel"],
+.wrap input[type="email"],
+.wrap select
+{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px; 
+}
+/* 버튼 꾸미기  */
+.wrap input[type="button"]
+{
+    display: inline-block;
+    margin: 30px auto 0 10px; /* 위 오른쪽 아래 왼쪽임*/
+    padding: 16px 50px;
+    border: 0;
+    border-radius: 100px;
+    background: lightcoral;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+/* 특이사항 입력란 크기 조정 */
+.wrap textarea
+{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+/* 회원가입 버튼 */
+.wrap input[type="submit"]
+{
+    display: inline-block;
+    margin: 30px auto 0 70px; /* 위 오른쪽 아래 왼쪽임*/
+    padding: 16px 50px;
+    border: 0;
+    border-radius: 100px;
+    background: lightcoral;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* 기존 라디오 버튼 제거 */
+.wrap input[type="radio"]
+{
+    display: none;
+}
+/* 라디오 버튼 이미지 적용 */
+.wrap input[type="radio"] + label
+{
+    margin-left: 20px;
+    padding-left: 20px; /*글씨와 그림 거리 조정*/
+    background: url(../img/radio_off.png) no-repeat 0 0;
+}
+
+.wrap dd label:nth-of-type(1)
+{
+    margin-left: 0;
+}
+/* 체크 됐을때 이미지 변하게 하기 */
+.wrap input[type="radio"]:checked + label
+{
+    background-image: url(../img/radio_on.png);
+}
+/* 기존 체크박스 제거 */
+.wrap input[type="checkbox"]
+{
+    display: none;
+}
+/* 체크박스 이미지 적용 */
+.wrap input[type="checkbox"] + label
+{
+    margin-left: 20px;
+    padding-left:  20px; /*버튼이미지랑 글씨 거리 조정*/
+    background: url(../img/chk_off.png) no-repeat 0 0;
+}
+
+/* 체크박스 클릭 했을때 이미지 변하게 하기 */
+.wrap input[type="checkbox"]:checked + label
+{
+    background-image: url(../img/chk_on.png);
+}
+
+/* 체크박스 글씨랑 이미지 왼쪽으로 붙이기 */
+.wrap dd label:nth-of-type(1)
+{
+    margin-left: 0;
+}
