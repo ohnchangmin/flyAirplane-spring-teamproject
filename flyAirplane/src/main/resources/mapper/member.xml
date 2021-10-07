@@ -7,4 +7,9 @@
 		(id, password, userName, role) 
 		VALUES (#{id}, #{password}, #{userName}, #{role})
 	</insert>
+	
+	<select id="login" parameterType="com.airplane.pension.dto.Member" resultType="com.airplane.pension.dto.Member">
+		SELECT * FROM member 
+		where id = #{id};
+	</select>
 </mapper>
