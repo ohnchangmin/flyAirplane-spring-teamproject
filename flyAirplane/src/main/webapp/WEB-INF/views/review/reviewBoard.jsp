@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>공지사항 작성</title>
-<link rel="stylesheet" href="/pension/resources/importUrl.css">
+<title>Review</title>
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<!-- Load d3-cloud -->
+<script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+<link rel="stylesheet" href="/pension/resources/css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 </head>
 <body>
@@ -47,35 +49,14 @@
 		</nav>
 	</header>
 	<main>
-		<form action="write" method="post">
-			<div class="board_wrap">
-				<div class="board_title">
-					<strong>공지사항</strong>
-					<p>공지사항을 빠르고 정확하게 안내해드립니다.</p>
+		<div class="container">
+				<!-- Create Chart -->
+				<div class="row mt-5">
+				<div id="my_dataviz" style="border: 1px solid black; width:600px; height: 500px; float: none; margin: 0 auto;"></div>
+				<script type="text/javascript"
+					src="/pension/resources/js/webChart.js"></script>
 				</div>
-				<div class="board_write_wrap">
-					<div class="board_write">
-						<div class="title">
-							<dl>
-								<dt>제목</dt>
-								<dd>
-									<input type="text" name="title" placeholder="제목 입력">
-								</dd>
-							</dl>
-						</div>
-						<hr>
-						<div class="cont">
-							<input type="hidden" name="name" value="${sessionScope.adminName}">
-							<textarea name="content" placeholder="내용 입력"></textarea>
-						</div>
-					</div>
-					<div class="bt_wrap">
-						<button type="submit">등록</button>
-						<a href="list">취소</a>
-					</div>
-				</div>
-			</div>
-		</form>
+		</div>
 	</main>
 </body>
 </html>

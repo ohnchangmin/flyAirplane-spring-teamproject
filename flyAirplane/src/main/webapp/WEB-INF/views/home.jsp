@@ -1,145 +1,215 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <html>
 <head>
 <title>Home</title>
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v3.min.js"></script>
-<!-- Load d3-cloud -->
-<script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=865bb5e6b5dd1c9aafd66f786f305256&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=865bb5e6b5dd1c9aafd66f786f305256&libraries=services"></script>
+<link rel="stylesheet" href="/pension/resources/css/style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 </head>
 <body>
-	<div id="map" style="width: 500px; height: 400px;"></div>
-	<script type="text/javascript" src="/pension/resources/kakaoMap.js"></script>
+	<header>
+		<nav class="navbar navbar-dark bg-dark">
+			<a class="navbar-brand" href="/pension/#"> <i class="fas fa-home">
+				</i>HealingCamp
+			</a>
+			<!-- Links -->
+			<ul class="nav justify-content-center">
+				<li class="nav-item"><a class="nav-link text-white" href="/pension/#">소개</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="/pension/notice/list">공지사항</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="/pension/review/reviewBoard">후기</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="/pension/#road">오시는길</a></li>
+			</ul>
+			<ul class="nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link text-white" href="/pension/member/joinForm">
+						<i class="fas fa-user mr-1"></i>Sign Up
+					</a>
+				</li>
+				<li class="nav-item">
+					<c:if test="${empty sessionScope.member}">
+						<a class="nav-link text-white" href="/pension/member/loginForm">
+							<i class="fas fa-sign-in-alt mr-1"></i>Login
+						</a>
+					</c:if>
+					<c:if test="${not empty sessionScope.member}">
+						<a class="nav-link text-white" href="/pension/member/logout">
+							<i class="fas fa-sign-in-alt mr-1"></i>Logout
+						</a>
+					</c:if>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div id="idx_top">
+	        <strong><span>힐링</span>캠프</strong>
+	        <p>함양 최고의 펜션에서 자연과 함께 힐링이 무엇인지 느껴보세요</p>
+    	</div>
+		<div class="container">
+			<div class="list_wrap">
+				<ul>
+					<li class="item item1">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
 
-	<div>
-		<select id="year" onchange="drawGra()">
-			<option value='2021'>2021</option>
-			<option value='2020'>2020</option>
-			<option value='2019'>2019</option>
-			<option value='2018'>2018</option>
-		</select>
-	</div>
-	
-<!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
+					</li>
+					<li class="item item2">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
 
-  <script>
+					</li>
+					<li class="item item3">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
 
-//Simple animated example of d3-cloud - https://github.com/jasondavies/d3-cloud
-//Based on https://github.com/jasondavies/d3-cloud/blob/master/examples/simple.html
+					</li>
+					<li class="item item4">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
 
-// Encapsulate the word cloud functionality
-function wordCloud(selector) {
+					</li>
+					<li class="item item5">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
 
-	//색 20개 색깔 지정 함수
-    var fill = d3.scale.category20();
+					</li>
+					<li class="item item6">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
 
-    //Construct the word cloud's SVG element
-    var svg = d3.select(selector).append("svg")
-        .attr("width", 500)
-        .attr("height", 500)
-        .append("g")
-        .attr("transform", "translate(250,250)");
+					</li>
+					<li class="item item7">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
 
+					</li>
+					<li class="item item8">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
 
-    //Draw the word cloud
-    function draw(words) {
-        var cloud = svg.selectAll("g text")
-                        .data(words, function(d) { return d.text; })
+					</li>
+					<li class="item item9">
+						<div class="image">사진</div>
+						<div class="cont">
+							<strong>제목이 들어갑니다</strong>
+							<p>내용이 들어갑니다</p>
+							<a href="#">바로가기</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<h3 class="h3" id="road">오시는 길</h3>
+			<hr>
+			<!-- Create Map -->
+			<div class="row">
+				<div class="center-block" id="map"
+					style="float: none; margin: 0 auto; width: 1110px; height: 400px;"></div>
+				<script type="text/javascript"
+					src="/pension/resources/js/kakaoMap.js"></script>
+			</div>
 
-        //Entering words
-        cloud.enter()
-            .append("text")
-            .style("font-family", "Impact")
-            .style("fill", function(d, i) { return fill(i); })
-            .attr("text-anchor", "middle")
-            .attr('font-size', 1)
-            .text(function(d) { return d.text; });
+			<div>
+				<h3 class="mt-5">함양 힐링캠프</h3>
+				<p>경상남도 함양군 안의면 유동길 76</p>
+			</div>
+		</div>
+	</main>
+	<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3 pt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Healing Camp
+          </h6>
+          <p>
+            Here you can use rows and columns to organize your footer content. Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
 
-        //Entering and existing words
-        cloud
-            .transition()
-                .duration(600)
-                .style("font-size", function(d) { return d.size + "px"; })
-                .attr("transform", function(d) {
-                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                })
-                .style("fill-opacity", 1);
-
-        //Exiting words
-        cloud.exit()
-            .transition()
-                .duration(200)
-                .style('fill-opacity', 1e-6)
-                .attr('font-size', 1)
-                .remove();
-    }
-
-
-    //Use the module pattern to encapsulate the visualisation code. We'll
-    // expose only the parts that need to be public.
-    return {
-
-        //Recompute the word cloud for a new set of words. This method will
-        // asycnhronously call draw when the layout has been computed.
-        //The outside world will need to call this function, so make it part
-        // of the wordCloud return value.
-        update: function(words) {
-            d3.layout.cloud().size([500, 500])
-                .words(words)
-                .padding(5)
-                .rotate(function() { return ~~(Math.random() * 2) * 90; })
-                .font("Impact")
-                .fontSize(function(d) { return d.size; })
-                .on("end", draw)
-                .start();
-        }
-    }
-
-}
-
-//Some sample data - http://en.wikiquote.org/wiki/Opening_lines
-var words = [
-    "정말 너무 예쁜 펜션이였어요! 사장님도 친절하시고 다음에 또 가고싶은 펜션이에요!",
-    "The boy with fair hair lowered himself down the last few feet of rock and began to pick his way toward the lagoon.",
-    "When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.",
-    "It was inevitable: the scent of bitter almonds always reminded him of the fate of unrequited love."
-]
-
-//Prepare one of the sample sentences by removing punctuation,
-// creating an array of words and computing a random size attribute.
-function getWords(i) {
-    return words[i]
-    .replace(/[!\.,:;\?]/g, '')
-    .split(' ')
-    .map(function(d) {
-                return {text: d, size: 10 + Math.random() * 60};})
-}
-
-
-//This method tells the word cloud to redraw with a new set of words.
-//In reality the new words would probably come from a server request,
-// user input or some other source.
-function showNewWords(vis, i) {
-    i = i || 0;
-
-    vis.update(getWords(i ++ % words.length))
-    setTimeout(function() { showNewWords(vis, i + 1)}, 4000)
-}
-
-//Create a new instance of the word cloud visualisation.
-var myWordCloud = wordCloud('body');
-
-//Start cycling through the demo data
-showNewWords(myWordCloud);
-
-
-</script>
-
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p><i class="fas fa-home me-3"></i> 경남 함양군 안의면 유동길 76</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            hyundamocm@gmail.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> 010-9360-0870 </p>
+              <div>
+			      <a href="" class="me-4 text-reset">
+			        <i class="fab fa-facebook-f"></i>
+			      </a>
+			      <a href="" class="me-4 text-reset">
+			        <i class="fab fa-twitter"></i>
+			      </a>
+			      <a href="" class="me-4 text-reset">
+			        <i class="fab fa-google"></i>
+			      </a>
+			      <a href="" class="me-4 text-reset">
+			        <i class="fab fa-instagram"></i>
+			      </a>
+			      <a href="" class="me-4 text-reset">
+			        <i class="fab fa-linkedin"></i>
+			      </a>
+			      <a href="" class="me-4 text-reset">
+			        <i class="fab fa-github"></i>
+			      </a>
+			   </div>
+          
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+</footer>
+<!-- Footer -->
 </body>
 </html>
